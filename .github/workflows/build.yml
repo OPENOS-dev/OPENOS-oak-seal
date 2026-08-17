@@ -41,7 +41,7 @@ jobs:
             ${{ matrix.arch == 'arm64' && 'gcc-aarch64-linux-gnu' || '' }} \
             ${{ matrix.arch == 'arm32' && 'gcc-arm-linux-gnueabihf' || '' }} \
             ${{ matrix.arch == 'x86' && 'gcc-multilib' || '' }} \
-            ${{ matrix.arch == 'loong64' && 'gcc-loongarch64-linux-gnu' || '' }}
+            ${{ matrix.arch == 'loong64' && 'gcc-13-loongarch64-linux-gnu g++-13-loongarch64-linux-gnu' || '' }}
           ccache -M 4G
           echo "/usr/lib/ccache" >> "$GITHUB_PATH"
 
