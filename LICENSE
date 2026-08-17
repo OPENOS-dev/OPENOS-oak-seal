@@ -1,0 +1,210 @@
+OPENOS-PROJECT-LICENSE (OPL) v1.2
+中文 / English
+版权所有 (C) 2026 OPENOS-dev
+
+本许可证是一份自由的、非商业的、具有 Copyleft 性质的软件许可证。它授予您使用、学习、共享、修改和重新分发本软件的自由，前提是您不得将其用于商业目的。同时，它禁止对涵盖作品的任何部分申请专利，并确保硬件中立性、分发纯净性和操作自主性。
+
+This license is a free, non-commercial, copyleft license for software and other kinds of works. It grants you the freedom to use, study, share, modify, and redistribute the software, provided that you do not use it for commercial purposes. It also prohibits patenting any part of the covered work, and ensures hardware neutrality, distribution purity, and operational autonomy.
+
+---
+
+序言
+
+本许可证旨在保护用户的自由以及 OPENOS 生态系统的完整性。我们相信，软件绝不应被用来限制用户的硬件选择、推送不需要的广告或将用户锁在系统之外。我们也相信，软件应保持不受商业剥削和任何试图通过专利主张占有其思想的行为——这些行为实际上是从社区中夺取所有权。
+
+因此，本许可证允许任何人将本软件用于个人、教育、非营利或社区目的，但禁止商业使用和针对涵盖作品或其衍生作品进行专利注册。
+
+Preamble
+
+This License is designed to protect both the freedom of users and the integrity of the OPENOS ecosystem. We believe that software should never be used to restrict users' hardware choices, to push unwanted advertisements, or to lock users out of their own systems. We also believe that software should remain free from commercial exploitation and from any attempt to patent the ideas it implements, which would effectively claim ownership over something that belongs to the community.
+
+Therefore, this License allows anyone to use, share, modify, and distribute the software for personal, educational, non-profit, or community purposes, but prohibits commercial use and patent registration of the covered work or its derivatives.
+
+---
+
+条款与条件
+
+0. 定义
+
+“本许可证”指 OPENOS-PROJECT-LICENSE 1.2 版本。
+“本程序”指根据本许可证授权的任何受版权保护的作品。每位被许可人称为“您”。
+“涵盖作品”指未修改的程序或基于该程序的作品。
+“商业使用”指将涵盖作品或其衍生作品用于商业优势或货币报酬的任何用途，包括但不限于：销售副本、提供收费托管或支持服务、将该作品作为收费专有产品的一部分、或通过广告或赞助使用该作品创收。商业组织内部的私人使用（例如内部工具）如果该作品未分发到组织外部，则不视为商业使用。
+
+0. Definitions
+
+“This License” refers to version 1.2 of the OPENOS-PROJECT-LICENSE.
+“The Program” refers to any copyrightable work licensed under this License. Each licensee is addressed as “you”.
+A “covered work” means either the unmodified Program or a work based on the Program.
+“Commercial use” means any use of the covered work, or any product derived from it, that is intended for or directed toward commercial advantage or monetary compensation, including but not limited to: selling copies, providing hosting or support services for a fee, using the work as part of a proprietary product offered for sale, or using the work to generate revenue through advertising or sponsorship. Private use within a commercial organization (e.g., internal tools) is not considered commercial use if the work is not distributed outside the organization.
+
+1. 源代码可用性
+
+您可以以任何媒介分发本程序源代码的逐字副本，前提是您显著地发布适当的版权声明，保留所有表明本许可证适用的声明，并向所有接收者提供本许可证的副本。
+您可以分发源代码的修改版本，前提是您清晰标记修改内容，注明修改日期，并将整个作品以本许可证授权给任何收到副本的人。
+当您分发目标代码时，必须按相同条款提供对应源代码（如 GPLv3 中所定义）。
+
+1. Source Code Availability
+
+You may convey verbatim copies of the Program's source code in any medium, provided that you conspicuously publish an appropriate copyright notice, retain all notices stating that this License applies, and give all recipients a copy of this License along with the Program.
+You may convey modified versions of the source code, provided that you clearly mark the modifications, state the date of changes, and license the entire work under this License to anyone who receives a copy.
+The Corresponding Source (as defined in GPLv3) must be made available under the same terms when you convey object code.
+
+2. 仅限非商业使用
+
+未经版权持有人的事先明确书面许可，您不得将涵盖作品或其任何衍生作品用于任何商业目的。
+此限制适用于所有形式的分发，包括源代码、目标代码以及包含涵盖作品的聚合作品。
+为明确起见，以下情况不被视为商业使用：
+   - 用于学习或娱乐的个人使用。
+   - 用于学术研究、教学或课堂环境。
+   - 用于非营利组织或社区项目。
+   - 公司内部的非创收任务使用，前提是该作品未分发到公司外部。
+   - 免费分发该作品，不附带任何商业服务或广告。
+
+2. Non-Commercial Use Only
+
+You may not use, copy, modify, or distribute the covered work, or any derivative work thereof, for any commercial purpose without prior explicit written permission from the copyright holder.
+This restriction applies to all forms of distribution, including source code, object code, and aggregated works that include the covered work.
+For clarity, the following are NOT considered commercial use:
+   - Personal use for learning or entertainment.
+   - Use in academic research, teaching, or classroom settings.
+   - Use in non-profit organizations or community projects.
+   - Internal use within a company for non-revenue-generating tasks, provided the work is not distributed outside the company.
+   - Distribution of the work free of charge without any associated commercial services or advertising.
+
+3. 硬件中立性
+
+任何涵盖作品不得仅因缺少特定硬件模块（如 TPM、Secure Boot 或类似物）而拒绝安装、执行或提供完整功能，前提是该硬件满足作品的基本计算要求。运行该软件的权利不应与任何特定供应商或硬件能力绑定。
+
+3. Hardware Neutrality
+
+No covered work may refuse to install, execute, or provide full functionality on any hardware platform solely due to the absence of any specific hardware module (such as TPM, Secure Boot, or equivalent), provided that the hardware meets the basic computational requirements of the work. The right to run the software shall not be tied to any particular vendor or hardware capability.
+
+4. 分发纯净性
+
+任何对涵盖作品的分发（包括源代码和编译后的二进制文件）不得包含广告、商业推广或对第三方服务的未经请求的建议，除非此类内容明确为作品核心功能所需，且用户在使用前已被告知。
+默认配置不得包含任何推广材料或预装商业应用程序。
+
+4. Distribution Purity
+
+Any distribution of a covered work (including source code and compiled binaries) must not include advertisements, commercial promotions, or unsolicited suggestions for third-party services, unless such content is explicitly required for the core functionality of the work and the user is clearly informed prior to use.
+Default configurations shall be free from any promotional material or preinstalled commercial applications.
+
+5. 操作自主性
+
+允许用户在紧急或特殊情况下绕过或覆盖涵盖作品的安全、配置或工作流限制，前提是此类操作通过作品的审计机制（如有）进行记录。
+任何用户不得因行使此权利而受到惩罚，也不应故意禁用任何功能以防止此类绕过。
+
+5. Operational Autonomy
+
+Users are permitted to bypass or override security, configuration, or workflow restrictions of a covered work in emergency or special scenarios, provided that such actions are logged by the work's auditing mechanisms where available.
+No user shall be penalized for exercising this right, nor shall any feature be intentionally disabled to prevent such bypass.
+
+6. 归属与完整性
+
+任何对涵盖作品的公开分发必须保留其原始名称和本许可证全文。衍生作品也必须在其项目标题或描述中保留“OPENOS”名称以表明来源，除非原始版权持有人另行明确许可。
+
+6. Attribution and Integrity
+
+Any public distribution of a covered work must retain its original name and the full text of this License. Derivative works must also retain the name “OPENOS” in their project title or description to indicate origin, unless explicit permission is granted otherwise by the original copyright holder.
+
+7. 专利禁止
+
+您不得对涵盖作品的任何部分（包括其算法、方法、系统架构、用户界面或任何其他方面，无论其原始或修改形式）申请、获得或强制执行任何专利权利要求。
+任何试图对涵盖作品任何部分申请专利的行为将被视为对本许可证的实质性违反，并将导致本许可证授予您的所有权利自动立即终止。此外，任何包含或引用涵盖作品、或基于涵盖作品的专利申请，除非获得原始版权持有人的明确书面许可，否则均被禁止。
+此禁令适用于所有司法管辖区，并包括临时专利、实用专利和外观设计专利。
+
+7. Patent Prohibition
+
+You are not permitted to apply for, obtain, or enforce any patent claim that covers any part of the covered work, including its algorithms, methods, system architecture, user interface, or any other aspect, whether in its original or modified form.
+Any attempt to patent any part of the covered work will be considered a material breach of this License, and will result in the automatic and immediate termination of all rights granted to you under this License. Furthermore, any patent application that incorporates or references the covered work, or is based on the covered work, is prohibited unless explicit written permission is obtained from the original copyright holder.
+This prohibition applies regardless of jurisdiction and includes provisional, utility, and design patents.
+
+8. 免责声明
+
+在适用法律允许的范围内，本程序不提供任何担保。除非另有书面说明，版权持有人和其他方按“原样”提供本程序，不附带任何明示或暗示的担保，包括但不限于适销性和特定用途适用性的暗示担保。有关本程序质量和性能的全部风险由您承担。
+
+8. Disclaimer of Warranty
+
+THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING, THE COPYRIGHT HOLDERS PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.
+
+9. 责任限制
+
+除非适用法律要求或书面同意，任何版权持有人均不对您承担损害赔偿责任，包括因使用或无法使用本程序而产生的任何一般性、特殊性、附带性或后果性损害（包括但不限于数据丢失、数据不准确或您或第三方遭受的损失，或本程序无法与其他程序协同工作），即使该持有人已被告知发生此类损害的可能性。
+
+9. Limitation of Liability
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM, EVEN IF SUCH HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+10. 终止
+
+如果您违反本许可证的任何条款，您在本许可证下的权利将自动终止。但是，从您处获得副本或权利的其他方，只要其自身完全遵守本许可证，其许可不会终止。
+如果您在收到版权持有人的违规通知后 30 天内纠正了违规行为，且这是您首次违反本许可证，则您的权利可以恢复。
+
+10. Termination
+
+If you violate any term of this License, your rights under this License terminate automatically. However, parties who have received copies or rights from you under this License will not have their licenses terminated as long as they remain in full compliance.
+You may reinstate your rights if you cure the violation within 30 days of receiving notice from the copyright holder, provided this is the first time you have violated this License.
+
+11. 接受
+
+通过修改或传播涵盖作品，您表示您接受本许可证以进行此类操作。您无需接受本许可证即可接收或运行本程序，但只有本许可证授予您传播或修改它的权限。
+
+11. Acceptance
+
+By modifying or propagating a covered work, you indicate your acceptance of this License to do so. You are not required to accept this License in order to receive or run a copy of the Program, but only this License grants you permission to propagate or modify it.
+
+12. 通用条款
+
+本许可证构成您与版权持有人之间关于本程序的完整协议。如果本许可证的任何条款被认定为无效或不可执行，其余条款将继续完全有效。
+
+12. General
+
+This License constitutes the entire agreement between you and the copyright holder regarding the Program. If any provision of this License is held invalid or unenforceable, the remaining provisions shall continue in full force and effect.
+
+---
+
+条款和条件结束
+
+END OF TERMS AND CONDITIONS
+
+---
+
+如何将本许可证应用于您的程序
+
+如果您开发了一个新程序，并希望它受本许可证保护，请在每个源文件的开头添加以下声明：
+
+    Copyright (C) 2026 [您的姓名]
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the OPENOS-PROJECT-LICENSE (OPL) v1.2.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    OPL for more details.
+
+    You should have received a copy of the OPL along with this program.
+    If not, see <https://github.com/OPENOS-dev/OPL>.
+
+同时请提供电子和纸质邮件的联系方式。
+
+---
+
+How to Apply This License to Your Program
+
+If you develop a new program and want it to be covered by this License,
+place the following notice at the start of each source file:
+
+    Copyright (C) 2026 [your name]
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the OPENOS-PROJECT-LICENSE (OPL) v1.2.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    OPL for more details.
+
+    You should have received a copy of the OPL along with this program.
+    If not, see <https://github.com/OPENOS-dev/OPL>.
+
+Also add information on how to contact you by electronic and paper mail.
