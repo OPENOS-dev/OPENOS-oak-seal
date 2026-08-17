@@ -38,12 +38,12 @@ jobs:
             libgcrypt20-dev libcurl4-openssl-dev libdb-dev gettext gawk bison flex bc \
             libelf-dev libncurses-dev dwarves kmod cpio file libsodium-dev \
             automake autoconf libtool libarchive-dev libcap-dev libwlroots-dev \
-            libblkid-dev libuuid-dev libmount-dev libsmartcols-dev libfdisk-dev \
+            libblkid-dev uuid-dev libmount-dev libsmartcols-dev libfdisk-dev \
             qt6-base-dev qt6-declarative-dev qt6-wayland-dev \
             ${{ matrix.arch == 'arm64' && 'crossbuild-essential-arm64' || '' }} \
             ${{ matrix.arch == 'arm32' && 'crossbuild-essential-armhf' || '' }} \
             ${{ matrix.arch == 'x86' && 'gcc-multilib' || '' }} \
-            ${{ matrix.arch == 'loong64' && 'crossbuild-essential-loongarch64' || '' }}
+            ${{ matrix.arch == 'loong64' && 'gcc-13-loongarch64-linux-gnu g++-13-loongarch64-linux-gnu' || '' }}
           ccache -M 4G
           echo "/usr/lib/ccache" >> "$GITHUB_PATH"
 
