@@ -61,8 +61,8 @@ jobs:
             loong64)TARGET=loongarch64-openos-linux-gnu; CROSS=loongarch64-linux-gnu- ;;
           esac
           export TARGET CROSS
-          PKG="${COMPONENT}-${ARCH}-DEV2026.1.pkg.tar.zst"
           WORK="$(mktemp -d)"
+          PKG="$WORK/${COMPONENT}-${ARCH}-DEV2026.1.pkg.tar.zst"
                     meson setup "$WORK/build" --prefix=/usr -Dbuildtype=release
           meson compile -C "$WORK/build"
           DESTDIR="$WORK/pkg" meson install -C "$WORK/build"
@@ -81,11 +81,14 @@ jobs:
             exit 0
           fi
           ARCH="${{ matrix.arch }}"
-          PKG="${COMPONENT}-${ARCH}-DEV2026.1.pkg.tar.zst"
+          PKG="$WORK/${COMPONENT}-${ARCH}-DEV2026.1.pkg.tar.zst"
+          rm -rf /tmp/binpkg-repo
           git clone --depth 1 "https://x-access-token:${BINPKG_TOKEN}@github.com/${BINPKG_REPO}.git" /tmp/binpkg-repo
           cd /tmp/binpkg-repo
           mkdir -p "bins/${COMPONENT}/${ARCH}"
           cp -f "$GITHUB_WORKSPACE/${PKG}" "bins/${COMPONENT}/${ARCH}/"
+          # 构建成功: 删除对应的失败日志, 避免 failure-report 重复创建 Issue
+          rm -f "logs/${COMPONENT}/$ARCH.log"
           git config user.name "OPENOS CI"
           git config user.email "ci@openos.dev"
           git add -A
