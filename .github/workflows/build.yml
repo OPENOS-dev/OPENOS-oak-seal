@@ -1,0 +1,89 @@
+name: OPENOS binpkg build
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      kernel:
+        description: 内核分层 (仅 kernel 组件生效)
+        type: choice
+        default: base
+        options: [base, base7, preview, classic]
+
+jobs:
+  build:
+    name: build-${{ matrix.arch }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86-64, x86, arm64, arm32, loong64]
+
+    env:
+      COMPONENT: openos-oak-seal
+      BINPKG_REPO: OPENOS-dev/OPENOS-BUILD-BINPKG
+      KERNEL_TIER: ${{ inputs.kernel || 'base' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装构建依赖与交叉工具链
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq \
+            build-essential ccache zstd meson ninja-build cmake pkg-config \
+            libssl-dev zlib1g-dev liblz4-dev liblzma-dev libzstd-dev libbz2-dev \
+            libgcrypt20-dev libcurl4-openssl-dev libdb-dev gettext gawk bison flex bc \
+            libelf-dev libncurses-dev dwarves kmod cpio file \
+            qt6-base-dev qt6-declarative-dev qt6-wayland-dev \
+            ${{ matrix.arch == 'arm64' && 'gcc-aarch64-linux-gnu' || '' }} \
+            ${{ matrix.arch == 'arm32' && 'gcc-arm-linux-gnueabihf' || '' }} \
+            ${{ matrix.arch == 'x86' && 'gcc-multilib' || '' }} \
+            ${{ matrix.arch == 'loong64' && 'gcc-loongarch64-linux-gnu' || '' }}
+          ccache -M 4G
+          echo "/usr/lib/ccache" >> "$GITHUB_PATH"
+
+      - name: 构建并打包 binpkg
+        run: |
+          set -euo pipefail
+          ARCH="${{ matrix.arch }}"
+          case "$ARCH" in
+            x86-64) TARGET=x86_64-openos-linux-gnu; CROSS="" ;;
+            x86)    TARGET=i686-openos-linux-gnu;     CROSS="" ;;
+            arm64)  TARGET=aarch64-openos-linux-gnu;  CROSS=aarch64-linux-gnu- ;;
+            arm32)  TARGET=armv7h-openos-linux-gnueabihf; CROSS=arm-linux-gnueabihf- ;;
+            loong64)TARGET=loongarch64-openos-linux-gnu; CROSS=loongarch64-linux-gnu- ;;
+          esac
+          export TARGET CROSS
+          PKG="${COMPONENT}-${ARCH}-DEV2026.1.pkg.tar.zst"
+          WORK="$(mktemp -d)"
+                    meson setup "$WORK/build" --prefix=/usr -Dbuildtype=release
+          meson compile -C "$WORK/build"
+          DESTDIR="$WORK/pkg" meson install -C "$WORK/build"
+          # 打包
+          mkdir -p "$WORK/pkg"
+          tar --zstd -cf "$PKG" -C "$WORK/pkg" .
+          ls -la "$PKG"
+
+      - name: 推送 binpkg 到共享仓库
+        env:
+          BINPKG_TOKEN: ${{ secrets.OPENOS_BINPKG_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$BINPKG_TOKEN" ]; then
+            echo "::warning::未配置 secrets.OPENOS_BINPKG_TOKEN，跳过推送"
+            exit 0
+          fi
+          ARCH="${{ matrix.arch }}"
+          PKG="${COMPONENT}-${ARCH}-DEV2026.1.pkg.tar.zst"
+          git clone --depth 1 "https://x-access-token:${BINPKG_TOKEN}@github.com/${BINPKG_REPO}.git" /tmp/binpkg-repo
+          cd /tmp/binpkg-repo
+          mkdir -p "bins/${COMPONENT}/${ARCH}"
+          cp -f "$GITHUB_WORKSPACE/${PKG}" "bins/${COMPONENT}/${ARCH}/"
+          git config user.name "OPENOS CI"
+          git config user.email "ci@openos.dev"
+          git add -A
+          git commit -m "binpkg: ${COMPONENT} ${ARCH} (${GITHUB_SHA:0:8})" || echo "no changes"
+          git push -q origin main
