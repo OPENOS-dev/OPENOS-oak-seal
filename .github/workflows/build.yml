@@ -70,6 +70,7 @@ jobs:
           mkdir -p "$WORK/pkg"
           tar --zstd -cf "$PKG" -C "$WORK/pkg" .
           ls -la "$PKG"
+          echo "WORK=$WORK" >> $GITHUB_ENV
 
       - name: 推送 binpkg 到共享仓库
         env:
@@ -86,7 +87,7 @@ jobs:
           git clone --depth 1 "https://x-access-token:${BINPKG_TOKEN}@github.com/${BINPKG_REPO}.git" /tmp/binpkg-repo
           cd /tmp/binpkg-repo
           mkdir -p "bins/${COMPONENT}/${ARCH}"
-          cp -f "$GITHUB_WORKSPACE/${PKG}" "bins/${COMPONENT}/${ARCH}/"
+          cp -f "$PKG" "bins/${COMPONENT}/${ARCH}/"
           # 构建成功: 删除对应的失败日志, 避免 failure-report 重复创建 Issue
           rm -f "logs/${COMPONENT}/$ARCH.log"
           git config user.name "OPENOS CI"
